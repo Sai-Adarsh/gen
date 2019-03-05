@@ -24,16 +24,66 @@ are normally:
 - `CLIENT_VERSION`: Client version string. e.g. "1.0.0b1"
 - `PACKAGE_NAME`: Package name for the generated client. e.g. "kubernetes"
 
-Example settings file for python-client:
-
+## Settings to add PACKAGE_NAME for {CLIENT_LANGUAGE}.sh
+ For generating the client for any language, the PACKAGE_NAME should be "client", along with the latest CLIENT_VERSION.
+### For python-client
+* Add these to python.sh
+```sh
 export KUBERNETES_BRANCH="master"
-export CLIENT_VERSION="8.0.0b1"
+export CLIENT_VERSION = "9.0.0-snapshot"
 export PACKAGE_NAME="client"
+```
 
-Note: For generating the client for any language, the PACKAGE_NAME should be "client".
-      You can use the latest version for the CLIENT_VERSION. It's displayed here for
-      the python-client ( https://github.com/kubernetes-client/python ), and similarly
-      for other language clients. 
+### For C Sharp
+* Add these to csharp.sh
+```sh
+export KUBERNETES_BRANCH=v1.13.0
+export CLIENT_VERSION=0.0.1
+export PACKAGE_NAME="client"
+```
+
+### For Go
+* Add these to go.sh
+```sh
+export KUBERNETES_BRANCH="master"
+export CLIENT_VERSION="0.1.0a1"
+export PACKAGE_NAME="client"
+```
+
+### For Haskell
+* Add these to haskell.sh
+```sh
+export KUBERNETES_BRANCH="release-1.9"
+export CLIENT_VERSION="0.1"
+export PACKAGE_NAME="client"
+```
+
+### For Java
+* Add these to java.sh
+```sh
+export KUBERNETES_BRANCH="release-1.13"
+export CLIENT_VERSION="5.0-SNAPSHOT"
+export PACKAGE_NAME="client"
+```
+
+### For Javascript
+* Add these to javascript.sh
+```sh
+export KUBERNETES_BRANCH="release-1.13"
+export CLIENT_VERSION="0.8-SNAPSHOT"
+export PACKAGE_NAME="@kubernetes/node-client"
+```
+
+
+### For Ruby
+* Add these to ruby.sh
+```sh
+export KUBERNETES_BRANCH="release-1.13"
+export CLIENT_VERSION="1.0.0-alpha2"
+export PACKAGE_NAME="client"
+```
+
+
 
 Recommended structure is to generate client in a folder called `kubernetes` at the root of
 the client repo and put all settings in a file named `settings` at the root of the repo.
